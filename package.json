@@ -1,0 +1,78 @@
+{
+  "name": "pcrf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --mode production",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix ./",
+    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
+    "loki:approve": "npx loki approve",
+    "test": "npx jest",
+    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
+    "check": "npm run lint && npm test && npm run test:loki",
+    "start": "npx webpack-dev-server --mode development --open --hot",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run check",
+      "pre-push": "npm run check"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denis0372/pcrf-conditions.git"
+  },
+  "author": "Denis Budenniy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denis0372/pcrf-conditions/issues"
+  },
+  "homepage": "https://github.com/denis0372/pcrf-conditions#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/cli": "^6.0.28",
+    "@storybook/react": "^5.3.21",
+    "@types/jest": "^25.1.4",
+    "@types/ramda": "^0.27.6",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-jest": "^25.2.4",
+    "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "html-webpack-plugin": "^4.0.3",
+    "husky": "^4.2.3",
+    "jest": "^25.5.4",
+    "loki": "^0.20.3",
+    "prettier": "^2.0.2",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@types/enzyme": "^3.10.8",
+    "ramda": "^0.27.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
